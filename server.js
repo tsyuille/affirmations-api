@@ -1,6 +1,9 @@
 const express = require('express')
 const app = express()
+const cors = require('cors')
 const PORT = 8000
+
+app.use(cors())
 
 const affirm = {
     1: {  
@@ -35,6 +38,6 @@ app.get('/api/:id', (req, res) => {
     
 })
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
     console.log(`Server is now running on port ${PORT}`)
 })
